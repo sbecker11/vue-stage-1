@@ -1,15 +1,32 @@
 <template>
   <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <JunkerComponent :msg="message"/>
+  <HelloWorld :msg="message"/>
+  <JunkerComponent :msg="message"/>
+  <input type="text" v-model="message" />
+  <button @click="alertMessage">Alert</button>
+
 </template>
 
 <script>
 import HelloWorld from './components/HelloWorld.vue'
+import JunkerComponent from './components/JunkerComponent.vue'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    HelloWorld,
+    JunkerComponent
+  },
+  data() {
+    return {
+      message: "Howdy Pard'ner"
+    }
+  },
+  methods: {
+    alertMessage(){
+      alert(this.message)
+    }
   }
 }
 </script>
